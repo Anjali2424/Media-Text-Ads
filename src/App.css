@@ -74,7 +74,7 @@ td {
 }
 
 .doughnut-chart {
-  width: 40%;
+  width: 50%;
   /* float: left; */
   margin: auto;
 
@@ -93,7 +93,7 @@ td {
 .graph-toggle-click {
   position: absolute;
   left: 700px;
-  top: 30px;
+  top: 10px;
 
 }
 

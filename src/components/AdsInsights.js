@@ -31,11 +31,12 @@ const AdsInsights = () => {
     };
 
     const options = {
-        legend: {
-          display: true,
-          position: "bottom"
+        plugins: {
+           legend: {
+              position: 'right'
+           }
         }
-      };
+     }
 
     return (
         <div>
@@ -52,7 +53,7 @@ const AdsInsights = () => {
                 <>
                     <div>
                         <div className="doughnut-chart">
-                            <Doughnut data={data} options={options}/>
+                            <Doughnut data={data} options={options} />
                         </div>
                     </div>
                 </>
