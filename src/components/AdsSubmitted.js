@@ -11,8 +11,8 @@ const AdsSubmitted = () => {
     }, 600);
 
     return () => clearTimeout(timeoutId);
-  }, [navigate]);
-
+  }, [navigate]);  
+   
   return (
     <div>
       <h2 style={{ textAlign: 'center', color: 'green'}}>Ads Submitted..</h2>
