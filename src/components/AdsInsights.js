@@ -5,7 +5,7 @@ import ReactSwitch from 'react-switch';
 import GraphsTable from './GraphsTables';
 
 ChartJS.register(ArcElement, Tooltip, Legend);
-
+  
 
 const AdsInsights = () => {
     const [showChart, setShowChart] = useState(true);
