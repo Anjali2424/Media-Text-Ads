@@ -15,7 +15,7 @@ const AdsInsights = () => {
         labels: ['Male', 'Female', 'Unknown'],
         datasets: [
             {
-                data: [40, 35, 25],
+                data: [40, 30, 30],
                 backgroundColor: ['#FF6384', '#36A2EB', '#FFCE56'],
                 hoverBackgroundColor: ['#FF6384', '#36A2EB', '#FFCE56'],
             },
