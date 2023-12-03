@@ -5,47 +5,66 @@ import ReactSwitch from 'react-switch';
 import GraphsTable from './GraphsTables';
 
 ChartJS.register(ArcElement, Tooltip, Legend);
-  
+
 
 const AdsInsights = () => {
     const [showChart, setShowChart] = useState(true);
-    const [selectedMetric, setSelectedMetric] = useState('clicks');
+    const [selectedMatrix, setSelectedMatrix] = useState('Click');
+
+    // Function to get chart data based on the selected matrix
+    const getChartData = (matrix) => {
+        switch (matrix) {
+            case 'Click':
+                return [30, 40, 30];
+            case 'Impressions':
+                return [20, 50, 30];
+            case 'Conversions':
+                return [10, 60, 30];
+            default:
+                return [0, 0, 0];
+        }
+    };
 
     const data = {
         labels: ['Male', 'Female', 'Unknown'],
         datasets: [
             {
-                data: [40, 30, 30],
+                data: getChartData(selectedMatrix),
                 backgroundColor: ['#FF6384', '#36A2EB', '#FFCE56'],
                 hoverBackgroundColor: ['#FF6384', '#36A2EB', '#FFCE56'],
             },
         ],
     };
 
-    const toggleView = () => {
-        setShowChart((prev) => !prev);
-    };
+    const matrixOptions = ['Click', 'Impressions', 'Conversions'];
 
-    const handleMetricChange = (e) => {
-        setSelectedMetric(e.target.value);
+    const handleMatrixChange = (event) => {
+        setSelectedMatrix(event.target.value);
     };
 
     const options = {
         plugins: {
-           legend: {
-              position: 'right'
-           }
+            legend: {
+                position: 'right'
+            }
         }
-     }
+    }
+    const toggleView = () => {
+        setShowChart((prev) => !prev);
+    };
+
+
 
     return (
         <div>
             <h2 className="graphs-header">
                 Ad Insights
-                <select value={selectedMetric} onChange={handleMetricChange} className='select-metrix'>
-                    <option value="clicks">Clicks</option>
-                    <option value="impressions">Impressions</option>
-                    <option value="conversions">Conversions</option>
+                <select value={selectedMatrix} onChange={handleMatrixChange} className='select-metrix'>
+                    {matrixOptions.map((matrix) => (
+                        <option key={matrix} value={matrix}>
+                            {matrix}
+                        </option>
+                    ))}
                 </select>
 
             </h2>
